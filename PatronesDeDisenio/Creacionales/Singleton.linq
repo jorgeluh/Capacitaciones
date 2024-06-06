@@ -2,13 +2,13 @@
 
 void Main()
 {
-	// Esta prueba está pensada para que múltiples hilos traten de acceder la instancia al mismo tiempo y comprobar si realmente se está
+	// Esta prueba está pensada para que múltiples hilos traten de acceder a la instancia al mismo tiempo y comprobar si realmente se está
     // creando una sola vez.
 	Random generador = new Random();
 	Thread hilo = null;
     for (int i = 0; i < 10000; i++)
 	{
-		hilo = new Thread(() => EjecutarProceso(generador.Next(1000, 1010)));
+		hilo = new Thread(() => EjecutarProceso(generador.Next(1000, 1001)));
 		hilo.Start();
 	}
 }

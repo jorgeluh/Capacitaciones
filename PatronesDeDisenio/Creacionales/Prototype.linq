@@ -36,12 +36,11 @@ public interface IPrototipo
 // La clase Cliente implementa la interfaz IPrototipo.
 public class Cliente : IPrototipo
 {
-	private readonly List<Cuenta> cuentas;
+	private readonly List<Cuenta> cuentas = new List<Cuenta>();
 	
 	public Cliente(int codigo, string nombre)
 	{
 		Console.WriteLine($"Construyendo el cliente {nombre}...");
-		this.cuentas = new List<Cuenta>();
 		this.Codigo = codigo;
 		this.Nombre = nombre;
 	}
@@ -140,12 +139,11 @@ public class PrestamoFiduiciario : Cuenta
 
 public class TarjetaCredito : Cuenta
 {
-	private readonly List<TarjetaCredito> tarjetasAdicionales;
+	private readonly List<TarjetaCredito> tarjetasAdicionales = new List<TarjetaCredito>();
 	
 	public TarjetaCredito(string numero, string nombre, decimal saldo, byte fechaCorte) : base(numero, nombre, saldo)
 	{
 		Console.WriteLine($"Construyendo la tarjeta de crédito {numero}...");
-		this.tarjetasAdicionales = new List<TarjetaCredito>();
 		this.FechaCorte = fechaCorte;
 	}
 	
