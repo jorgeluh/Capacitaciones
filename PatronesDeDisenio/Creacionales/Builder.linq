@@ -143,10 +143,8 @@ public class ConstructorProcesadorTransferencia : IConstructor<ProcesadorTransfe
 		this.procesador = new ProcesadorTransferenciaLocal();
 	}
 	
-	public void FijarComentario(string descripcion)
-	{
-		Console.WriteLine("El comentario de la transferencia no altera el tipo de procesador.");
-	}
+	public void FijarComentario(string descripcion) =>
+        Console.WriteLine("El comentario de la transferencia no altera el tipo de procesador.");
 	
 	public void FijarBancoDestino(Banco banco)
 	{

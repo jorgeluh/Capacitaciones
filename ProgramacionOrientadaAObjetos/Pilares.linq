@@ -23,9 +23,7 @@ public abstract class Persona
 }
 
 // Herencia, esta clase no tiene nada. ¿O sí? Y se puede usar donde se requiera una Persona.
-public class Hispanohablante : Persona
-{
-}
+public class Hispanohablante : Persona;
 
 public class Anglohablante : Persona
 {
@@ -33,8 +31,5 @@ public class Anglohablante : Persona
 	private string saludo = "Hello world.";
 	
 	// Polimorfisno, el objeto recuerda que aunque se use como Persona, específicamente es Anglohablante.
-	public override void Saludar()
-	{
-		Console.WriteLine(this.saludo);
-	}
+	public override void Saludar() => Console.WriteLine(this.saludo);
 }

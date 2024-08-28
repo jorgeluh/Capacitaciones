@@ -63,11 +63,7 @@ public class ConsultaMovimientosMesCuenta
 }
 
 // Registro para el movimiento de la cuenta.
-public record Movimiento(DateTime Fecha, decimal Monto, string Descripcion)
-{
-}
+public record Movimiento(DateTime Fecha, decimal Monto, string Descripcion);
 
 // Registro para el conjunto de datos de una cuenta.
-public record DatosCuenta(string Numero, string Nombre, decimal Saldo, IEnumerable<Movimiento> MovimientosMes)
-{
-}
+public record DatosCuenta(string Numero, string Nombre, decimal Saldo, IEnumerable<Movimiento> MovimientosMes);

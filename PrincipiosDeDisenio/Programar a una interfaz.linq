@@ -32,6 +32,4 @@ public IEnumerable<Movimiento> ConsultarMovimientosMes(string numeroCuenta)
 }
 
 // Registro para el movimiento de la cuenta.
-public record Movimiento(DateTime Fecha, decimal Monto, string Descripcion)
-{
-}
+public record Movimiento(DateTime Fecha, decimal Monto, string Descripcion);

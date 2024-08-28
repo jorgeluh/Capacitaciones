@@ -132,4 +132,4 @@ public class OperadorTransferencia : ManejadorBase
 }
 
 public record Transferencia(
-    long Identificador, string Usuario, string CuentaDebito, string CuentaCredito, decimal Monto, byte AutorizacionesRequeridas) { }
+    long Identificador, string Usuario, string CuentaDebito, string CuentaCredito, decimal Monto, byte AutorizacionesRequeridas);

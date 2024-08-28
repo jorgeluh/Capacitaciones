@@ -12,16 +12,11 @@ void Main()
 }
 
 // Función para crear un comando de pago de servicio.
-public IComando CrearPagoServicio(string cuentaDebito, decimal monto, Servicio servicio)
-{
-	return new PagoServicio(cuentaDebito, monto, servicio);
-}
+public IComando CrearPagoServicio(string cuentaDebito, decimal monto, Servicio servicio) => new PagoServicio(cuentaDebito, monto, servicio);
 
 // Función para crear un comando de transferencia.
-public IComando CrearTransferencia(string cuentaDebito, string cuentaCredito, decimal monto)
-{
-	return new Transferencia(cuentaDebito, cuentaCredito, monto);
-}
+public IComando CrearTransferencia(string cuentaDebito, string cuentaCredito, decimal monto) =>
+    new Transferencia(cuentaDebito, cuentaCredito, monto);
 
 // La interfaz del comando declara operaciones simples sin parámetros, sólo provee una forma de "ejecutar algo".
 public interface IComando
@@ -52,10 +47,7 @@ public class PagoServicio : IComando
 	}
 	
 	// Implementación del método de la interfaz.
-	public void Ejecutar()
-	{
-		this.operadorPago.Pagar(this.cuentaDebito, this.monto, this.proveedor);
-	}
+	public void Ejecutar() => this.operadorPago.Pagar(this.cuentaDebito, this.monto, this.proveedor);
 	
 	public void Revertir() => Console.WriteLine("El pago de servicios no soporta reversiones.");
 }
@@ -78,16 +70,10 @@ public class Transferencia : IComando
 		this.monto = monto;
 	}
 
-	public void Ejecutar()
-	{
-		this.operadorTransferencia.Transferir(cuentaDebito, cuentaCredito, monto);
-	}
+	public void Ejecutar() => this.operadorTransferencia.Transferir(cuentaDebito, cuentaCredito, monto);
 	
 	// Las transferencias sí soportan reversiones.
-	public void Revertir()
-	{
-		this.operadorTransferencia.Transferir(cuentaCredito, cuentaDebito, monto);
-	}
+	public void Revertir() => this.operadorTransferencia.Transferir(cuentaCredito, cuentaDebito, monto);
 }
 
 // Clase de negocio que realiza el pago del servicio.

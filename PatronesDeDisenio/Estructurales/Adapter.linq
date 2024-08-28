@@ -60,21 +60,15 @@ public class AdaptadorRest : IConsultaCuenta
 // Simulador de servicio REST.
 public class ServicioSoapCuenta
 {
-	public string ObtenerDatosCuenta(int numero)
-	{
-		return $"<cuenta><numero>{numero}</numero><nombre>Nombre Cuenta {numero}</nombre><saldo>123.45</saldo></cuenta>";
-	}
+	public string ObtenerDatosCuenta(int numero) =>
+        $"<cuenta><numero>{numero}</numero><nombre>Nombre Cuenta {numero}</nombre><saldo>123.45</saldo></cuenta>";
 }
 
 // Simulador de servicio SOAP.
 public class ServicioRestCuenta
 {
-	public string ObtenerInformacionCuenta(int numero)
-	{
-		return $"{{ \"numero\": {numero}, \"nombre\": \"Nombre Cuenta {numero}\", \"saldo\": 123.45 }}";
-	}
+	public string ObtenerInformacionCuenta(int numero) =>
+        $"{{ \"numero\": {numero}, \"nombre\": \"Nombre Cuenta {numero}\", \"saldo\": 123.45 }}";
 }
 
-public record DatosCuenta(string Numero, string Nombre, decimal Saldo)
-{
-}
+public record DatosCuenta(string Numero, string Nombre, decimal Saldo);

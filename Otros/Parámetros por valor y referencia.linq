@@ -24,25 +24,13 @@ void Main()
 	cliente.Dump();
 }
 
-public void Prueba(int valor)
-{
-	valor++;
-}
+public void Prueba(int valor) => valor++;
 
-public void PruebaReferencia(ref int valor)
-{
-	valor++;
-}
+public void PruebaReferencia(ref int valor) => valor++;
 
-public void PruebaCadena(string valor)
-{
-	valor = "Otro valor";
-}
+public void PruebaCadena(string valor) => valor = "Otro valor";
 
-public void PruebaCadenaReferencia(ref string valor)
-{
-	valor = "1, 2, 3, probando...";
-}
+public void PruebaCadenaReferencia(ref string valor) => valor = "1, 2, 3, probando...";
 
 public void PruebaObjeto(Cliente cliente)
 {
@@ -50,10 +38,7 @@ public void PruebaObjeto(Cliente cliente)
 	cliente = new Cliente() { Nombre = "Fulano" };
 }
 
-public void PruebaObjetoReferencia(ref Cliente cliente)
-{
-	cliente = new Cliente() { Nombre = "Cliente Nuevo" };
-}
+public void PruebaObjetoReferencia(ref Cliente cliente) => cliente = new Cliente() { Nombre = "Cliente Nuevo" };
 
 public class Cliente
 {

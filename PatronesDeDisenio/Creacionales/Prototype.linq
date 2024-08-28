@@ -64,7 +64,7 @@ public class Cliente : IPrototipo
 	
 	public string Nombre { get; private set; }
 	
-	public IReadOnlyCollection<Cuenta> Cuentas => cuentas.AsReadOnly();
+	public IReadOnlyCollection<Cuenta> Cuentas => this.cuentas.AsReadOnly();
 	
 	public void AgregarCuenta(Cuenta cuenta) => this.cuentas.Add(cuenta);
 	
@@ -105,10 +105,8 @@ public abstract class Cuenta : IPrototipo
 
 public class CuentaMonetaria : Cuenta
 {
-	public CuentaMonetaria(string numero, string nombre, decimal saldo) : base(numero, nombre, saldo)
-	{
+	public CuentaMonetaria(string numero, string nombre, decimal saldo) : base(numero, nombre, saldo) =>
 		Console.WriteLine($"Construyendo la cuenta monetaria {numero}...");
-	}
 }
 
 public class CuentaAhorro : Cuenta
@@ -161,10 +159,7 @@ public class TarjetaCredito : Cuenta
 	
 	public byte FechaCorte { get; private set; }
 	
-	public void AgregarTarjetaAdicional(TarjetaCredito tarjetaAdicional)
-	{
-		this.tarjetasAdicionales.Add(tarjetaAdicional);
-	}
+	public void AgregarTarjetaAdicional(TarjetaCredito tarjetaAdicional) => this.tarjetasAdicionales.Add(tarjetaAdicional);
 	
 	// Como esta clase tiene a su vez una lista, se vuelve a implementar el método Clonar() anulando la copia superficial de la clase
 	// Cuenta.
